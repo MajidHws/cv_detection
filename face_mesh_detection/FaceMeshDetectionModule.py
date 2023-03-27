@@ -33,7 +33,7 @@ class FaceMeshDetector():
                         ih, iw, ic = img.shape
                         x, y = int(lm.x*iw), int(lm.y*ih)
                         # print(([x,y]))
-                        cv2.putText(img, str('id'), (x, y), cv2.FONT_HERSHEY_PLAIN, 3, (0,0,0), 3)
+                        cv2.putText(img, str('id'), (x, y), cv2.FONT_HERSHEY_PLAIN, 1, (0,0,0), 1)
                         face.append([x,y])
                     faces.append(face)
 
@@ -51,8 +51,8 @@ def main():
     while True:
         success, img = cap.read()
         img, faces = detector.findFaceMesh(img, True)
-        if len(faces):
-            print(len(faces))
+        # if len(faces):
+        #     print(len(faces))
 
         cTime = time.time()
         fps = 1/(cTime-pTime)
