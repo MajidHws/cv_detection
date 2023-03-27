@@ -74,10 +74,12 @@ def main():
     cTime = 0
 
     detector = FaceDetector()
+    
     while True:
         success, img = cap.read()
         
         img, bboxs =detector.findFaces(img)
+
         cTime = time.time()
         fps = 1/(cTime-pTime)
         pTime = cTime
